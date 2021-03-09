@@ -1,15 +1,15 @@
 <template>
-  <div class="product-list">
-    <h1>Liste des produits</h1>
-    <ul>
+  <div class="product">
+    <h1>Page produit</h1>
       <div class="product" v-for="data in datas" v-bind:key="data" >
         <h3>{{data.title}}</h3>
-        <p><strong>Description du produit :</strong> {{data.description}}</p>
+        <p><strong>Description du produit :</strong> {{data.long_description}}</p>
+        <img alt="image du produit" class=""/>
+        <img alt="image du produit" class=""/>
         <img alt="image du produit" class=""/>
         <p>Prix : {{data.price}}</p>
-        <button>En savoir +</button>
+        <button v-on:click="add(data)">Ajouter au panier</button>
       </div>
-    </ul>
   </div>
 </template>
 
@@ -17,15 +17,19 @@
 import data from '../datas/datas.json';
 
 export default {
-  name: 'ProductList',
+  name: 'Product',
   data(){
     return{
       datas : data,
+      shoppingCart : []
     }
   },
-  // props: {
-  //   title: String
-  // }
+  methods : {
+      add: function(data) {
+          console.log(data)
+          this.shoppingCart.push(data)
+      }
+  }
 }
 </script>
 

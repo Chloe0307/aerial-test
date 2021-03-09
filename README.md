@@ -24,3 +24,9 @@ DEBUT DE L AVENTURE
 - MON PREMIER RENDU DE MA PAGE "PRODUCTLIST" EST TERMINE.
 
 #### EXERCICE 2
+- installation npm install vue-router
+- création component "product"
+- création dossier views + déplacer les composants dans views
+- création dossier router => index => createRouter
+- 
+

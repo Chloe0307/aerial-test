@@ -1,15 +1,18 @@
 <template>
-  <div class="product">
-    <h1>Page produit</h1>
+  <div class="product-list">
+    <h1>Liste des produits</h1>
+    <ul>
       <div class="product" v-for="data in datas" v-bind:key="data" >
         <h3>{{data.title}}</h3>
-        <p><strong>Description du produit :</strong> {{data.long_description}}</p>
-        <img alt="image du produit" class=""/>
-        <img alt="image du produit" class=""/>
+        <p><strong>Description du produit :</strong> {{data.description}}</p>
         <img alt="image du produit" class=""/>
         <p>Prix : {{data.price}}</p>
-        <button>Ajouter au panier</button>
+        <router-link to="/product" tag="button">
+          <a href="/product">En savoir +</a>
+        </router-link>
+      
       </div>
+    </ul>
   </div>
 </template>
 
@@ -17,15 +20,11 @@
 import data from '../datas/datas.json';
 
 export default {
-  name: 'Product',
   data(){
     return{
       datas : data,
     }
   },
-  // props: {
-  //   title: String
-  // }
 }
 </script>
 
