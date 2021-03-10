@@ -28,5 +28,11 @@ DEBUT DE L AVENTURE
 - création component "product"
 - création dossier views + déplacer les composants dans views
 - création dossier router => index => createRouter
-- 
+- en récupérant l'ID dans $route.params.id j'affiche la page produit en cliquand sur "en savoir +
+
+##### EXERCICE 3
+- création de la page shoppingCart
+- création de la route dans le router.
+- BLOCAGE : comment récupérer les produits cliqués dans le panier. 
+
 

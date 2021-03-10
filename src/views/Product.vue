@@ -1,35 +1,48 @@
 <template>
   <div class="product">
-    <h1>Page produit</h1>
-      <div class="product" v-for="data in datas" v-bind:key="data" >
+    <h1>Page produit : {{ $route.params.id }}</h1>
+      <div class="product" >
         <h3>{{data.title}}</h3>
-        <p><strong>Description du produit :</strong> {{data.long_description}}</p>
-        <img alt="image du produit" class=""/>
-        <img alt="image du produit" class=""/>
-        <img alt="image du produit" class=""/>
+        <p><strong>Description du produit :</strong> 
+          {{data.long_description}}
+        </p>
+        <img alt="image du produit" class="" :src="data.image1"/>
+        <img alt="image du produit" class="" :src="data.image2" />
+        <img alt="image du produit" class="" :src="data.image3" />
         <p>Prix : {{data.price}}</p>
-        <button v-on:click="add(data)">Ajouter au panier</button>
-      </div>
+        <button v-if="!cart.includes(data.id)" @click="addToCart(data)">
+          Ajouter au panier
+        </button>
+        <div v-else>
+          Ajouté au panier !
+        </div>
+  </div>
   </div>
 </template>
 
 <script>
-import data from '../datas/datas.json';
+import datas from '../datas/datas.json';
 
 export default {
   name: 'Product',
+  created(){
+    // console.log(this.$route.params.id);
+    this.data = datas.find((e) => e.id === parseInt(this.$route.params.id))
+  },
   data(){
     return{
-      datas : data,
-      shoppingCart : []
+      cart: [],
+      data: {},
     }
   },
-  methods : {
-      add: function(data) {
-          console.log(data)
-          this.shoppingCart.push(data)
-      }
-  }
+  methods: {
+    addToCart(product){
+      this.cart.push(product.id)
+      this.$router.push({name: 'shoppingCart'})
+    }
+  },
+  props : [  ],
+
 }
 </script>
 

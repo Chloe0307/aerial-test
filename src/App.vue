@@ -1,16 +1,18 @@
 <template>
   <div id="app">
-    <ProductList />
+    <h1>
+      Faites vos courses en ligne
+    </h1>
+    <router-view></router-view>
   </div>
+  <!--  -->
 </template>
 
 <script>
-import ProductList from './views/ProductList';
 
 export default {
   name: 'App',
   components: {
-    ProductList,
   }
 }
 </script>
